@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.widget.Button
-import android.widget.SearchView
-import android.widget.Toast
+import android.widget.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -29,22 +27,30 @@ class MainActivity : AppCompatActivity() {
         DictionaryAdpater()
     }
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         recyclerDictionary.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = this@MainActivity.adapter
-
         }
 
-        btnSearch.setOnClickListener({
+        val wordInput: SearchView = findViewById(R.id.wordInput)
+        val wordSearch: ImageButton = findViewById(R.id.btnSearch)
+
+
+        wordSearch.setOnClickListener({
+            viewModel.defineTerm(wordInput.toString())
+
             Toast.makeText(this, "Searched button pressed", Toast.LENGTH_SHORT).show()
         })
-        viewModel.defineTerm("jawn")
+
+        wordInputObservable()
+
+    }
+
+    private fun wordInputObservable() {
         viewModel.definitions.observe(this, Observer {
             adapter.submitList(it.list)
             /*Toast.makeText(this, it.toString(), Toast.LENGTH_LONG).show()*/
@@ -52,14 +58,5 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.main_menu, menu)
 
-        val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchItem = menu?.findItem(R.id.wordInput)
-        val searchView = searchItem?.actionView as SearchView
-
-        searchView.setOnQueryTextListener(object:)
-    }
 }
