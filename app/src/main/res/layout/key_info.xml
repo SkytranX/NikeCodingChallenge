@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="definition"
+            type="com.example.nikecodingchallenge.model.Definition" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorDark"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_gravity="top"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/dictionarywrd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:text="@{definition.word}"
+            android:textColor="@color/colorlighter"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/w_Definition"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/w_Definition"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:textSize="15sp"
+            android:text="@{definition.definition}"
+            android:textColor="@color/colorlighter"
+            app:layout_constraintBottom_toTopOf="@id/used_Example"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dictionarywrd" />
+
+        <TextView
+            android:id="@+id/used_Example"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:textSize="15sp"
+            android:text="@{definition.example}"
+            android:textColor="@color/colorlighter"
+            app:layout_constraintBottom_toTopOf="@id/thumbsUp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/w_Definition" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true">
+
+            <TextView
+                android:id="@+id/used_Author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="15sp"
+                android:text="@{definition.author}"
+                android:textColor="@color/colorlighter"
+                android:textStyle="bold|italic"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true">
+
+
+            <ImageView
+                android:id="@+id/thumbsUp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/thumbup" />
+
+            <TextView
+                android:id="@+id/thumbsUpValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@id/thumbsUp"
+                android:text="@{Integer.toString(definition.thumbs_up)}"
+                android:textColor="@color/colorlighter"
+                android:textSize="18sp"/>
+
+            <ImageView
+                android:id="@+id/thumbsDown"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/thumbsUpValue"
+                android:background="@drawable/thumbdown" />
+
+
+            <TextView
+                android:id="@+id/thumbsDownValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/thumbsDown"
+                android:text="@{Integer.toString(definition.thumbs_down)}"
+                android:textColor="@color/colorlighter"
+                android:textSize="18sp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>
