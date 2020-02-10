@@ -11,7 +11,7 @@ import com.example.nikecodingchallenge.databinding.KeyInfoBinding
 import com.example.nikecodingchallenge.model.Definition
 
 
-class DictionaryAdpater : DataBoundListAdapter<Definition>(
+class DictionaryAdapter : DataBoundListAdapter<Definition>(
     diffCallback = object : DiffUtil.ItemCallback<Definition>() {
         override fun areItemsTheSame(oldItem: Definition, newItem: Definition): Boolean =
             oldItem == newItem
@@ -39,10 +39,3 @@ class DictionaryAdpater : DataBoundListAdapter<Definition>(
         binding.root.setOnClickListener(onClick)
     }
 }
-/*
- viewGroup.searchWord.text = dictionaryList[viewType].word
-        viewGroup.wrdDefinition.text = dictionaryList[viewType].definition
-        viewGroup.wrdExample.text = dictionaryList[viewType].example
-        viewGroup.thumbsUpVal.text = dictionaryList[viewType].thumbs_up.toString()
-        viewGroup.thumbsDownVal.text = dictionaryList[viewType].thumbs_down.toString()
-}*/
