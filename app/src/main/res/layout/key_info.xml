@@ -10,126 +10,133 @@
             type="com.example.nikecodingchallenge.model.Definition" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/colorDark"
-        android:padding="8dp">
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:cardBackgroundColor="@color/colorDark"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp">
 
-        <TextView
-            android:id="@+id/dictionarywrd"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@{definition.word}"
-            android:textColor="@color/colorlighter"
-            android:textSize="35sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/w_Definition"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Jawn" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/w_Definition"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@{definition.definition}"
-            android:textColor="@color/colorlighter"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@id/used_Example"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dictionarywrd"
-            tools:text="[Philly][Slang] ....." />
+            <TextView
+                android:id="@+id/dictionarywrd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@{definition.word}"
+                android:textColor="@color/colorlighter"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/w_Definition"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Jawn" />
 
-        <TextView
-            android:id="@+id/used_Example"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@{definition.example}"
-            android:textColor="@color/colorlighter"
-            android:textSize="15sp"
-            android:paddingBottom="10dp"
-            app:layout_constraintBottom_toTopOf="@id/barrier"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/w_Definition"
-            tools:text="Lorem Ipsum" />
+            <TextView
+                android:id="@+id/w_Definition"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@{definition.definition}"
+                android:textColor="@color/colorlighter"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/used_Example"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dictionarywrd"
+                tools:text="[Philly][Slang] ....." />
 
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:barrierDirection="top"
-            app:constraint_referenced_ids="used_Author,user_Date" />
+            <TextView
+                android:id="@+id/used_Example"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:paddingBottom="10dp"
+                android:text="@{definition.example}"
+                android:textColor="@color/colorlighter"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/barrier"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/w_Definition"
+                tools:text="Lorem Ipsum" />
 
-        <TextView
-            android:id="@+id/used_Author"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@{definition.author}"
-            android:textColor="@color/colorlighter"
-            android:textSize="15sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintBottom_toTopOf="@id/thumbsUpValue"
-            app:layout_constraintEnd_toStartOf="@id/user_Date"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/used_Example"
-            tools:text="Author" />
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:barrierDirection="top"
+                app:constraint_referenced_ids="used_Author,user_Date" />
 
-        <TextView
-            android:id="@+id/user_Date"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@{definition.written_on}"
-            android:textColor="@color/colorlighter"
-            android:textSize="15sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintBottom_toTopOf="@id/thumbsUpValue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/used_Author"
-            app:layout_constraintTop_toBottomOf="@id/used_Example"
-            tools:text="Date" />
+            <TextView
+                android:id="@+id/used_Author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@{definition.author}"
+                android:textColor="@color/colorlighter"
+                android:textSize="15sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintBottom_toTopOf="@id/thumbsUpValue"
+                app:layout_constraintEnd_toStartOf="@id/user_Date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/used_Example"
+                tools:text="Author" />
 
-        <TextView
-            android:id="@+id/thumbsUpValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginEnd="10dp"
-            android:drawableStart="@drawable/ic_thumb_up"
-            android:drawablePadding="10dp"
-            android:text="@{Integer.toString(definition.thumbs_up)}"
-            android:textColor="@color/colorlighter"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/thumbsDownValue"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="400" />
+            <TextView
+                android:id="@+id/user_Date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="@color/colorlighter"
+                android:textSize="15sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintBottom_toTopOf="@id/thumbsUpValue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/used_Author"
+                app:layout_constraintTop_toBottomOf="@id/used_Example"
+                app:displayDate="@{definition.written_on}"
+                tools:text="Date" />
 
-        <TextView
-            android:id="@+id/thumbsDownValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:drawableStart="@drawable/ic_thumb_down"
-            android:drawablePadding="10dp"
-            android:text="@{Integer.toString(definition.thumbs_down)}"
-            android:textColor="@color/colorlighter"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/thumbsUpValue"
-            tools:text="200" />
+            <TextView
+                android:id="@+id/thumbsUpValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginEnd="10dp"
+                android:drawableStart="@drawable/ic_thumb_up"
+                android:drawablePadding="10dp"
+                android:text="@{Integer.toString(definition.thumbs_up)}"
+                android:textColor="@color/colorlighter"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/thumbsDownValue"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="400" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/thumbsDownValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:drawableStart="@drawable/ic_thumb_down"
+                android:drawablePadding="10dp"
+                android:text="@{Integer.toString(definition.thumbs_down)}"
+                android:textColor="@color/colorlighter"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/thumbsUpValue"
+                tools:text="200" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

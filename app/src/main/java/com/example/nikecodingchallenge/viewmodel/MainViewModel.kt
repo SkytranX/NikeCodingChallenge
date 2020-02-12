@@ -16,19 +16,12 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val job = SupervisorJob()
-    private val coroutineContext = Dispatchers.IO + job
-    private val repo = Repository
-
     private var _definitions: MutableLiveData<DefinitionResponse> = MutableLiveData()
-    val definitions: LiveData<DefinitionResponse> = _definitions
+    val definitions: LiveData<DefinitionResponse>
+        get() = _definitions
 
 
-    fun defineTerm(term: String) = liveData(Dispatchers.IO) {
-        println("STARTING TO FETCH DEFINE TERM")
-        val definitionResponse = repo.defineTerm(term)
-        println("ENDING FETCH")
-        println(definitionResponse.toString())
-        emit(definitionResponse)
+    fun defineTerm(term: String) = viewModelScope.launch {
+        _definitions.postValue(Repository.defineTerm(term))
     }
 }
