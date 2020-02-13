@@ -104,6 +104,15 @@
                 app:layout_constraintTop_toBottomOf="@id/used_Example"
                 app:displayDate="@{definition.written_on}"
                 tools:text="Date" />
+            <ImageButton
+                android:id="@+id/thumbsUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/ic_thumb_up"
+                android:drawablePadding="10dp"
+                />
 
             <TextView
                 android:id="@+id/thumbsUpValue"

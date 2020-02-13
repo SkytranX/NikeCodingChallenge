@@ -17,6 +17,17 @@
         android:padding="8dp"
         tools:context=".view.MainActivity">
 
+        <ProgressBar
+            android:id="@+id/progrs_Bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progress="25"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/wordInput"
             android:layout_width="0dp"
@@ -27,7 +38,7 @@
             android:inputType="text"
             android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@id/h_txt_input"
-            app:layout_constraintEnd_toStartOf="@id/txt_input_g2"
+            app:layout_constraintEnd_toStartOf="@id/txt_input_g"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,10 +50,23 @@
             android:background="@drawable/round"
             android:tint="@color/colorBackground"
             app:layout_constraintBottom_toTopOf="@id/h_txt_input"
+            app:layout_constraintEnd_toStartOf="@id/txt_input_g2"
+            app:layout_constraintStart_toEndOf="@id/txt_input_g"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_search" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnSort"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/round"
+            android:tint="@color/colorBackground"
+            app:layout_constraintBottom_toTopOf="@id/h_txt_input"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/txt_input_g2"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_search" />
+            app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerDictionary"
@@ -58,11 +82,17 @@
 
         <!-- Guidelines-->
         <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/txt_input_g"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".75" />
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/txt_input_g2"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent=".86" />
+            app:layout_constraintGuide_percent=".89" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/h_txt_input"
